@@ -1,0 +1,159 @@
+const c = [
+  { inputs: [], stateMutability: "nonpayable", type: "constructor" },
+  {
+    anonymous: !1,
+    inputs: [
+      { indexed: !0, internalType: "address", name: "owner", type: "address" },
+      { indexed: !0, internalType: "address", name: "spender", type: "address" },
+      { indexed: !1, internalType: "uint256", name: "value", type: "uint256" }
+    ],
+    name: "Approval",
+    type: "event"
+  },
+  {
+    anonymous: !1,
+    inputs: [
+      { indexed: !0, internalType: "address", name: "from", type: "address" },
+      { indexed: !0, internalType: "address", name: "to", type: "address" },
+      { indexed: !1, internalType: "uint256", name: "value", type: "uint256" }
+    ],
+    name: "Transfer",
+    type: "event"
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "", type: "address" },
+      { internalType: "address", name: "", type: "address" }
+    ],
+    name: "allowance",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "spender", type: "address" },
+      { internalType: "uint256", name: "value", type: "uint256" }
+    ],
+    name: "approve",
+    outputs: [{ internalType: "bool", name: "success", type: "bool" }],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [{ internalType: "address", name: "", type: "address" }],
+    name: "balanceOf",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [],
+    name: "decimals",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [],
+    name: "name",
+    outputs: [{ internalType: "string", name: "", type: "string" }],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [],
+    name: "symbol",
+    outputs: [{ internalType: "string", name: "", type: "string" }],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [],
+    name: "totalSupply",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint256", name: "value", type: "uint256" }
+    ],
+    name: "transfer",
+    outputs: [{ internalType: "bool", name: "success", type: "bool" }],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "from", type: "address" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint256", name: "value", type: "uint256" }
+    ],
+    name: "transferFrom",
+    outputs: [{ internalType: "bool", name: "success", type: "bool" }],
+    stateMutability: "nonpayable",
+    type: "function"
+  }
+];
+var t = /* @__PURE__ */ ((e) => (e.Base = "BASE", e.Asset = "ASSET", e))(t || {}), n = /* @__PURE__ */ ((e) => (e.Avalanche = "AVAX", e.Binance = "BNB", e.Bitcoin = "BTC", e.Ethereum = "ETH", e.THORChain = "THOR", e.Cosmos = "GAIA", e.BitcoinCash = "BCH", e.Litecoin = "LTC", e.Doge = "DOGE", e.Solana = "SOL", e))(n || {});
+const d = [
+  "THOR",
+  "AVAX",
+  "BTC",
+  "ETH",
+  "BNB",
+  "GAIA",
+  "DOGE",
+  "BCH",
+  "LTC",
+  "SOL"
+];
+var a = /* @__PURE__ */ ((e) => (e.AVAX = "0x0000000000000000000000000000000000000000", e.ETH = "0x0000000000000000000000000000000000000000", e.USDC_SPL_MINT_ADDRESS = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", e.USDC_SPL_TESTNET_MINT_ADDRESS = "6TEqT62wq5mbKQPubX9eFeNJRYXRJd79Hk51pZk7nZrB", e))(a || {}), i = /* @__PURE__ */ ((e) => (e.Mainnet = "mainnet", e.Testnet = "testnet", e))(i || {}), r = /* @__PURE__ */ ((e) => (e[e.Ethereum = 60] = "Ethereum", e[e.Binance = 714] = "Binance", e[e.THORChain = 931] = "THORChain", e))(r || {}), s = /* @__PURE__ */ ((e) => (e.Avalanche = "43114", e.AvalancheHex = "0xa86a", e.Binance = "Binance-Chain-Tigris", e.Bitcoin = "bitcoin", e.Bitcoincash = "bitcoincash", e.Cosmos = "cosmos", e.DogeCoin = "dogecoin", e.Ethereum = "1", e.EthereumHex = "0x1", e.Litecoin = "litecoin", e.Thorchain = "thorchain", e))(s || {}), u = /* @__PURE__ */ ((e) => (e.AVAX = "AVAX", e.BNB = "BNB", e.BTC = "BTC", e.ETH = "ETH", e.THOR = "THOR", e.GAIA = "GAIA", e.BCH = "BCH", e.LTC = "LTC", e.RUNE = "RUNE", e["RUNE-67C"] = "RUNE-67C", e["RUNE-B1A"] = "RUNE-B1A", e.DOGE = "DOGE", e.SOL = "SOL", e.ATOM = "ATOM", e.MUON = "MUON", e.RUNE_ERC_20 = "RUNE-0x3155ba85d5f96b2d030a4966af206230e46849cb", e.RUNE_ERC_20_TESTNET = "RUNE-0xd601c6A3a36721320573885A8d8420746dA3d7A0", e))(u || {});
+const l = {
+  AVAX: "43114",
+  BNB: "Binance-Chain-Tigris",
+  BTC: "bitcoin",
+  BCH: "bitcoincash",
+  GAIA: "cosmos",
+  DOGE: "dogecoin",
+  ETH: "1",
+  LTC: "litecoin",
+  THOR: "thorchain",
+  SOL: void 0
+};
+var p = /* @__PURE__ */ ((e) => (e[e.NoError = 36864] = "NoError", e))(p || {}), T = /* @__PURE__ */ ((e) => (e.Transfer = "transfer", e.Unknown = "unknown", e))(T || {});
+const m = "image rally need wedding health address purse army antenna leopard sea gain";
+var y = /* @__PURE__ */ ((e) => (e.Average = "average", e.Fast = "fast", e.Fastest = "fastest", e))(y || {}), o = /* @__PURE__ */ ((e) => (e.FlatFee = "base", e.PerByte = "byte", e))(o || {});
+const B = [
+  n.THORChain,
+  n.Ethereum,
+  n.Binance,
+  n.Bitcoin,
+  n.BitcoinCash,
+  n.Doge,
+  n.Litecoin,
+  n.Cosmos
+];
+var E = /* @__PURE__ */ ((e) => (e.KEYSTORE = "KEYSTORE", e.XDEFI = "XDEFI", e.METAMASK = "METAMASK", e.TRUSTWALLET = "TRUSTWALLET", e.LEDGER = "LEDGER", e.PHANTOM = "PHANTOM", e.KEPLR = "KEPLR", e))(E || {});
+export {
+  u as AssetSymbol,
+  n as Chain,
+  s as ChainId,
+  l as ChainToChainId,
+  a as ContractAddress,
+  t as Denomination,
+  p as ErrorCode,
+  y as FeeOption,
+  o as FeeType,
+  B as LEDGER_SUPPORTED_CHAINS,
+  m as MOCK_PHRASE,
+  i as Network,
+  r as NetworkId,
+  d as SUPPORTED_CHAINS,
+  T as TxType,
+  E as WalletOption,
+  c as erc20ABI
+};
+//# sourceMappingURL=index.es.js.map
